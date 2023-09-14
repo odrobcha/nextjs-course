@@ -32,7 +32,7 @@ export async function getStaticPaths () {
     client.close();
 
     return {                             //  has to be exported if using getStaticProps on dynamic page [meetupId] Object with all possible paths
-        fallback: true, //says if paths contain all path values. FALSE - means contain ALL, TRUE - next willtry to generate page dynamically for id which is not in paths
+        fallback: 'blocking',  //can be true, false or 'blocking' // true - immidiatly return empty page, with 'blocking' user will see nothing before page is generated and populated with data (no empty page)//says if paths contain all path values. FALSE - means contain ALL, TRUE - next willtry to generate page dynamically for id which is not in paths
         paths: meetups.map(meetup => ({
             params: {
                 meetupId: meetup._id.toString()
