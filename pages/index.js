@@ -39,7 +39,7 @@ export async function getStaticProps () { // reserved name for pre-rendering pro
                 id: meetup._id.toString()
             }))
         },
-        revalidate: 10 //number of seconds till Next will wait before regenerating the page for incoming request
+        revalidate: 1 //number of seconds till Next will wait before regenerating the page for incoming request
     };
 }
 
